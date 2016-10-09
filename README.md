@@ -20,7 +20,7 @@ _Altered clicks_ are:
 - <kbd>SHIFT</kbd>-click
 - <kbd>CMD</kbd>-click
 - Any clicks that aren’t left-clicks
-- Clicks that already received `preventDefault()`. [Note]()
+- Clicks that already received `preventDefault()`. [Note](#onlyphysical)
 
 ## Usage
 
