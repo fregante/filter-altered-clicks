@@ -1,6 +1,6 @@
 {
   "name": "filter-altered-clicks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Filter alt-click, ctrl-click, shift-click, middle click, ...",
   "license": "MIT",
   "repository": "bfred-it/filter-altered-clicks",
