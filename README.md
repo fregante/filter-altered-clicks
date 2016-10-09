@@ -107,6 +107,8 @@ el.addEventListener('click', filterAlteredClicks(function (e) {
 }, true)); //<-- notice the true as the second parameter of filterAlteredClicks
 ```
 
+This is called `onlyPhysical` because it refers to "only physical alterations", which is _altered by keyboard and not by code._
+
 ## Dependencies
 
 None!
