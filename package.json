@@ -27,10 +27,12 @@
     "jsfix": "xo --fix",
     "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
     "watch": "npm-run-all --parallel --silent watch:*",
+    "watch:test": "ava --watch",
     "prepublish": "npm run build",
-    "test": "xo; npm run build"
+    "test": "xo && ava; npm run build"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "bfred-npm-bundler": "^7.1.2",
     "npm-run-all": "^3.1.0",
     "onchange": "^3.0.2",
