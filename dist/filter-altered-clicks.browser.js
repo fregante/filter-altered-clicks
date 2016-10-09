@@ -1,0 +1,2 @@
+/*! npm.im/filter-altered-clicks */
+var filterAlteredClicks=function(){"use strict";function t(t,e){return function(r){if(r=r.originalEvent||r,!(r.which>1||r.shiftKey||r.altKey||r.metaKey||r.ctrlKey||!e&&r.defaultPrevented))return t.call(this,r)}}return t}();
