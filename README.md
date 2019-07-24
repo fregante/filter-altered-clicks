@@ -6,10 +6,10 @@
 [![Travis build status][badge-travis]][link-travis]
 [![npm version][badge-version]][link-npm]
 
-  [badge-gzip]: https://badges.herokuapp.com/size/github/bfred-it/filter-altered-clicks/master/dist/filter-altered-clicks.browser.js?gzip=true&label=gzipped%20size
-  [badge-travis]: https://api.travis-ci.org/bfred-it/filter-altered-clicks.svg
+  [badge-gzip]: https://badges.herokuapp.com/size/github/fregante/filter-altered-clicks/master/dist/filter-altered-clicks.browser.js?gzip=true&label=gzipped%20size
+  [badge-travis]: https://api.travis-ci.org/fregante/filter-altered-clicks.svg
   [badge-version]: https://img.shields.io/npm/v/filter-altered-clicks.svg
-  [link-travis]: https://travis-ci.org/bfred-it/filter-altered-clicks
+  [link-travis]: https://travis-ci.org/fregante/filter-altered-clicks
   [link-npm]: https://www.npmjs.com/package/filter-altered-clicks
 
 Middle-clicking on a link should open it in a new tab. SPAs hijack normal links to load them via ajax, breaking all _altered clicks_... unless they `filter-altered-clicks` 😉
@@ -115,8 +115,8 @@ None!
 
 ## Related
 
-* [on-off](https://github.com/bfred-it/on-off/): Add and remove multiple events on multiple elements in <1KB
+* [on-off](https://github.com/fregante/on-off/): Add and remove multiple events on multiple elements in <1KB
 
 ## License
 
-MIT © [Federico Brigante](http://twitter.com/bfred_it)
+MIT © [Federico Brigante](https://bfred.it)

@@ -2,34 +2,40 @@
   "name": "filter-altered-clicks",
   "version": "1.0.1",
   "description": "Filter alt-click, ctrl-click, shift-click, middle click, ...",
-  "license": "MIT",
-  "repository": "bfred-it/filter-altered-clicks",
-  "author": "Federico Brigante <github@bfred.it> (bfred.it)",
   "keywords": [
+    "alt",
+    "click",
+    "cmd",
+    "ctrl",
+    "defaultPrevented",
     "dom",
     "events",
-    "click",
     "middle",
-    "alt",
-    "shift",
-    "ctrl",
-    "cmd",
-    "defaultPrevented"
+    "shift"
   ],
+  "repository": "fregante/filter-altered-clicks",
+  "license": "MIT",
+  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "dist"
   ],
   "main": "dist/filter-altered-clicks.common-js.js",
   "module": "dist/filter-altered-clicks.es-modules.js",
   "scripts": {
-    "build:js": "bfred-npm-bundler filter-altered-clicks filterAlteredClicks",
     "build": "npm-run-all --silent jsfix build:*",
+    "build:js": "bfred-npm-bundler filter-altered-clicks filterAlteredClicks",
     "jsfix": "xo --fix",
-    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
-    "watch": "npm-run-all --parallel --silent watch:*",
-    "watch:test": "ava --watch",
     "prepublish": "npm run build",
-    "test": "xo && ava; npm run build"
+    "test": "xo && ava; npm run build",
+    "watch": "npm-run-all --parallel --silent watch:*",
+    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
+    "watch:test": "ava --watch"
+  },
+  "xo": {
+    "env": [
+      "browser"
+    ],
+    "esnext": true
   },
   "devDependencies": {
     "ava": "^0.16.0",
@@ -37,11 +43,5 @@
     "npm-run-all": "^3.1.0",
     "onchange": "^3.0.2",
     "xo": "^0.16.0"
-  },
-  "xo": {
-    "esnext": true,
-    "env": [
-      "browser"
-    ]
   }
 }
