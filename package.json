@@ -1,6 +1,6 @@
 {
 	"name": "filter-altered-clicks",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Filter alt-click, ctrl-click, shift-click, middle click, ...",
 	"keywords": [
 		"alt",
