@@ -1,4 +1,4 @@
-# filter-altered-clicks ![][badge-gzip]][link-bundlephobia]
+# filter-altered-clicks [![][badge-gzip]][link-bundlephobia]
 
 [badge-gzip]: https://img.shields.io/bundlephobia/minzip/filter-altered-clicks.svg?label=gzipped
 [link-bundlephobia]: https://bundlephobia.com/result?p=filter-altered-clicks
@@ -8,6 +8,7 @@
 Middle-clicking on a link should open it in a new tab. SPAs hijack normal links to load them via ajax, breaking all _altered clicks_... unless they `filter-altered-clicks` 😉
 
 _Altered clicks_ are:
+
 - <kbd>ALT</kbd>-click
 - <kbd>CTRL</kbd>-click
 - <kbd>SHIFT</kbd>-click
@@ -22,42 +23,41 @@ _Altered clicks_ are:
 Simplest usage:
 
 ```js
-element.addEventListener('click', filterAlteredClicks(function (e) {
-	console.log('Unaltered click!');
-}));
+element.addEventListener(
+	'click',
+	filterAlteredClicks(event => {
+		console.log('Unaltered click!');
+	})
+);
 ```
 
 jQuery usage:
 
 ```js
-$(element).on('click', filterAlteredClicks(function (e) {
-	console.log('Unaltered click!');
-}));
+$(element).on(
+	'click',
+	filterAlteredClicks(event => {
+		console.log('Unaltered click!');
+	})
+);
 ```
 
 Ajax loading example, using jQuery for brevity, but it's not necessary:
 
 ```js
-$('a.ajax-link').on('click', filterAlteredClicks(function (e) {
-	$('#content').load(this.href);
-	e.preventDefault();
-}));
+$('a.ajax-link').on(
+	'click',
+	filterAlteredClicks(event => {
+		$('#content').load(this.href);
+		event.preventDefault();
+	})
+);
 ```
 
 ## Install
 
-Pick your favorite:
-
-```html
-<script src="dist/filter-altered-clicks.browser.js"></script>
-```
-
 ```sh
 npm install --save filter-altered-clicks
-```
-
-```js
-var filterAlteredClicks = require('filter-altered-clicks');
 ```
 
 ```js
@@ -85,19 +85,30 @@ Once filtered, `listener` is normally not called if the event has already been `
 Example:
 
 ```js
-el.addEventListener('click', filterAlteredClicks(function (e) {
-	console.log('Unaltered click!');
-	console.log('I’m altering this click:');
-	e.preventDefault();
-}));
+element.addEventListener(
+	'click',
+	filterAlteredClicks(event => {
+		console.log('Unaltered click!');
+		console.log('I’m altering this click:');
+		event.preventDefault();
+	})
+);
 
-el.addEventListener('click', filterAlteredClicks(function (e) {
-	// This will never be called because the previous one used .preventDefault
-}));
+element.addEventListener(
+	'click',
+	filterAlteredClicks(event => {
+		// This will never be called because the previous one used .preventDefault
+	})
+);
 
-el.addEventListener('click', filterAlteredClicks(function (e) {
-	console.log('Unaltered click! But maybe .preventDefault was already called');
-}, true)); //<-- notice the true as the second parameter of filterAlteredClicks
+element.addEventListener(
+	'click',
+	filterAlteredClicks(event => {
+		console.log(
+			'Unaltered click! But maybe .preventDefault was already called'
+		);
+	}, true)
+); //<-- notice the true as the second parameter of filterAlteredClicks
 ```
 
 This is called `onlyPhysical` because it refers to "only physical alterations", which is _altered by keyboard and not by code._
@@ -108,7 +119,7 @@ None!
 
 ## Related
 
-* [on-off](https://github.com/fregante/on-off/): Add and remove multiple events on multiple elements in <1KB
+- [on-off](https://github.com/fregante/on-off/): Add and remove multiple events on multiple elements in <1KB
 
 ## License
 

@@ -1,39 +1,39 @@
 {
-  "name": "filter-altered-clicks",
-  "version": "2.0.0",
-  "description": "Filter alt-click, ctrl-click, shift-click, middle click, ...",
-  "keywords": [
-    "alt",
-    "click",
-    "cmd",
-    "ctrl",
-    "defaultPrevented",
-    "dom",
-    "events",
-    "middle",
-    "shift"
-  ],
-  "repository": "fregante/filter-altered-clicks",
-  "funding": "https://github.com/sponsors/fregante",
-  "license": "MIT",
-  "author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
-  "type": "module",
-  "exports": "./index.js",
-  "types": "./index.d.ts",
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "xo": {
-    "env": [
-      "browser"
-    ]
-  },
-  "devDependencies": {
-    "ava": "^5.2.0",
-    "xo": "^0.53.1"
-  }
+	"name": "filter-altered-clicks",
+	"version": "2.0.0",
+	"description": "Filter alt-click, ctrl-click, shift-click, middle click, ...",
+	"keywords": [
+		"alt",
+		"click",
+		"cmd",
+		"ctrl",
+		"defaultPrevented",
+		"dom",
+		"events",
+		"middle",
+		"shift"
+	],
+	"repository": "fregante/filter-altered-clicks",
+	"funding": "https://github.com/sponsors/fregante",
+	"license": "MIT",
+	"author": "Federico Brigante <me@fregante.com> (https://fregante.com)",
+	"type": "module",
+	"exports": "./index.js",
+	"types": "./index.d.ts",
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"xo": {
+		"env": [
+			"browser"
+		]
+	},
+	"devDependencies": {
+		"ava": "^5.2.0",
+		"xo": "^0.53.1"
+	}
 }

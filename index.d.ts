@@ -1,1 +1,3 @@
-export default function filterAlteredClicks<Listener>(handler: Listener): Listener;
+export default function filterAlteredClicks<Listener>(
+	handler: Listener
+): Listener;
