@@ -1,16 +1,17 @@
 export default function filterAlteredClicks(callback, onlyPhysical) {
-	return function (e) {
-		e = e.originalEvent || e; // jQuery support
+	return function (event) {
+		event = event.originalEvent || event; // JQuery support
 		if (
-			e.which > 1 ||
-			e.shiftKey ||
-			e.altKey ||
-			e.metaKey ||
-			e.ctrlKey ||
-			(!onlyPhysical && e.defaultPrevented)
+			event.which > 1
+			|| event.shiftKey
+			|| event.altKey
+			|| event.metaKey
+			|| event.ctrlKey
+			|| (!onlyPhysical && event.defaultPrevented)
 		) {
 			return;
 		}
-		return callback.call(this, e);
+
+		return callback.call(this, event);
 	};
 }

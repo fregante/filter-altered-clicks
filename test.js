@@ -1,17 +1,19 @@
 import test from 'ava';
-import filterAlteredClicks from '.';
+import filterAlteredClicks from './index.js';
 
 class Element {
 	constructor() {
 		this.listeners = [];
 	}
+
 	addEventListener(type, listener) {
 		this.listeners.push(listener);
 	}
+
 	dispatchEvent(type, event) {
-		this.listeners.forEach(listener => {
+		for (const listener of this.listeners) {
 			listener(event);
-		});
+		}
 	}
 }
 
@@ -26,6 +28,7 @@ class NativeEvent {
 		this.defaultPrevented = false;
 		Object.assign(this, alteration);
 	}
+
 	preventDefault() {
 		this.defaultPrevented = true;
 	}
@@ -35,6 +38,7 @@ class jQueryEvent {
 	constructor(alteration = {}) {
 		this.originalEvent = new NativeEvent(alteration);
 	}
+
 	preventDefault() {
 		this.originalEvent.preventDefault();
 	}
@@ -42,28 +46,28 @@ class jQueryEvent {
 
 const alterations = {
 	shift: {
-		shiftKey: true
+		shiftKey: true,
 	},
 
 	alt: {
-		altKey: true
+		altKey: true,
 	},
 
 	ctrl: {
-		ctrlKey: true
+		ctrlKey: true,
 	},
 
 	meta: {
-		metaKey: true
+		metaKey: true,
 	},
 
 	middle: {
-		which: 2
+		which: 2,
 	},
 
 	other: {
-		which: 5
-	}
+		which: 5,
+	},
 };
 
 test.beforeEach(t => {
@@ -72,14 +76,14 @@ test.beforeEach(t => {
 	t.context.dispatchEvent = element.dispatchEvent.bind(element);
 });
 
-[NativeEvent, jQueryEvent].forEach(Event => {
+for (const Event of [NativeEvent, jQueryEvent]) {
 	test(`${Event.name}: unaltered clicks should not be prevented`, t => {
 		t.plan(1);
 		t.context.addEventListener('click', filterAlteredClicks(() => t.pass()));
 		t.context.dispatchEvent('click', new Event());
 	});
 
-	Object.keys(alterations).forEach(name => {
+	for (const name of Object.keys(alterations)) {
 		const alteration = alterations[name];
 		test(`${Event.name}: ${name} clicks should be prevented`, t => {
 			t.plan(1);
@@ -87,13 +91,13 @@ test.beforeEach(t => {
 			t.context.dispatchEvent('click', new Event(alteration));
 			t.pass();
 		});
-	});
+	}
 
 	test(`${Event.name}: defaultPrevented clicks should be prevented`, t => {
 		t.plan(1);
 		t.context.addEventListener('click', filterAlteredClicks(() => t.fail()));
 		t.context.dispatchEvent('click', new Event({
-			defaultPrevented: true
+			defaultPrevented: true,
 		}));
 		t.pass();
 	});
@@ -102,8 +106,7 @@ test.beforeEach(t => {
 		t.plan(1);
 		t.context.addEventListener('click', filterAlteredClicks(() => t.pass(), true));
 		t.context.dispatchEvent('click', new Event({
-			defaultPrevented: true
+			defaultPrevented: true,
 		}));
 	});
-});
-
+}

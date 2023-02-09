@@ -1,16 +1,9 @@
-# filter-altered-clicks
+# filter-altered-clicks ![][badge-gzip]][link-bundlephobia]
+
+[badge-gzip]: https://img.shields.io/bundlephobia/minzip/filter-altered-clicks.svg?label=gzipped
+[link-bundlephobia]: https://bundlephobia.com/result?p=filter-altered-clicks
 
 > Filter alt-click, ctrl-click, shift-click, middle click, ...
-
-[![gzipped size][badge-gzip]](#no-link)
-[![Travis build status][badge-travis]][link-travis]
-[![npm version][badge-version]][link-npm]
-
-  [badge-gzip]: https://badges.herokuapp.com/size/github/fregante/filter-altered-clicks/master/dist/filter-altered-clicks.browser.js?gzip=true&label=gzipped%20size
-  [badge-travis]: https://api.travis-ci.org/fregante/filter-altered-clicks.svg
-  [badge-version]: https://img.shields.io/npm/v/filter-altered-clicks.svg
-  [link-travis]: https://travis-ci.org/fregante/filter-altered-clicks
-  [link-npm]: https://www.npmjs.com/package/filter-altered-clicks
 
 Middle-clicking on a link should open it in a new tab. SPAs hijack normal links to load them via ajax, breaking all _altered clicks_... unless they `filter-altered-clicks` 😉
 
@@ -119,4 +112,4 @@ None!
 
 ## License
 
-MIT © [Federico Brigante](https://bfred.it)
+MIT © [Federico Brigante](https://fregante.com)
