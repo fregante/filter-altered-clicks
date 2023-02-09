@@ -2,7 +2,7 @@ export default function filterAlteredClicks(callback, onlyPhysical) {
 	return function (event) {
 		event = event.originalEvent || event; // JQuery support
 		if (
-			event.which > 1
+			(event instanceof MouseEvent && event.which > 1)
 			|| event.shiftKey
 			|| event.altKey
 			|| event.metaKey

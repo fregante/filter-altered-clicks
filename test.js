@@ -17,8 +17,11 @@ class Element {
 	}
 }
 
-class NativeEvent {
+globalThis.MouseEvent = class {};
+
+class NativeEvent extends MouseEvent {
 	constructor(alteration = {}) {
+		super();
 		this.type = 'click';
 		this.which = 1;
 		this.shiftKey = false;
