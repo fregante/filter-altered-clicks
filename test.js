@@ -1,5 +1,5 @@
 import test from 'ava';
-import filterAlteredClicks from './index.js';
+import filterAlteredClicks, {isAlteredClick} from './index.js';
 
 class Element {
 	constructor() {
@@ -112,5 +112,16 @@ for (const Event of [NativeEvent, jQueryEvent]) {
 		t.context.dispatchEvent('click', new Event({
 			defaultPrevented: true,
 		}));
+	});
+
+	for (const name of Object.keys(alterations)) {
+		const alteration = alterations[name];
+		test(`${Event.name}: isAlteredClick should return true for ${name} clicks`, t => {
+			t.is(isAlteredClick(new Event(alteration)), true);
+		});
+	}
+
+	test(`${Event.name}: isAlteredClick should return false for unaltered clicks`, t => {
+		t.is(isAlteredClick(new Event()), false);
 	});
 }

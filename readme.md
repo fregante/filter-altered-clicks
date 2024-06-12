@@ -61,7 +61,7 @@ npm install --save filter-altered-clicks
 ```
 
 ```js
-import filterAlteredClicks from 'filter-altered-clicks';
+import filterAlteredClick, {isAlteredClick} from 'filter-altered-clicks';
 ```
 
 ## API
@@ -112,6 +112,16 @@ element.addEventListener(
 ```
 
 This is called `onlyPhysical` because it refers to "only physical alterations", which is _altered by keyboard and not by code._
+
+### `isAlteredClick(event)`
+
+Returns true if any modifier were held while clicking, or if any button other than the main button was clicked.
+
+#### `event`
+
+Type: [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent)
+
+The event object received in the listener function
 
 ## Dependencies
 
