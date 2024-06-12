@@ -37,6 +37,7 @@ class NativeEvent extends MouseEvent {
 	}
 }
 
+// eslint-disable-next-line unicorn/prevent-abbreviations -- https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2375
 class jQueryEvent {
 	constructor(alteration = {}) {
 		this.originalEvent = new NativeEvent(alteration);
